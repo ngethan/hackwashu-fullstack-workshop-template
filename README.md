@@ -4,7 +4,8 @@ This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3
 
 ## Features
 
-- **Better Auth** for modern authentication with email/password and social providers
+- **Better Auth** for modern authentication with email/password
+- **Todo Management** - Full CRUD operations for todos
 - **Next.js 15** App Router
 - **tRPC** for type-safe API routes
 - **Drizzle ORM** with PostgreSQL
@@ -22,6 +23,7 @@ This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3
 
 1. Clone the repository
 2. Copy `.env.example` to `.env` and configure:
+
    ```bash
    cp .env.example .env
    ```
@@ -32,11 +34,13 @@ This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3
    - Configure your database URL in `DATABASE_URL`
 
 4. Install dependencies:
+
    ```bash
    pnpm install
    ```
 
 5. Setup the database:
+
    ```bash
    pnpm db:push
    # or run migrations:
@@ -44,11 +48,12 @@ This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3
    ```
 
 6. Start the development server:
+
    ```bash
    pnpm dev
    ```
 
-7. Visit http://localhost:3000
+7. Visit <http://localhost:3000>
 
 ## Authentication
 
@@ -58,16 +63,18 @@ This template uses Better Auth with the following features:
 - **Session Management**: Secure session handling with database storage
 - **Protected Routes**: Easy to protect pages and API routes
 
-### How to Use Authentication
+### How to Use the App
 
 1. Visit `/auth` to access the login/signup page
 2. Create an account with email and password
 3. Once logged in, you'll be redirected to the home page
-4. The session is available in both server and client components
+4. Click "Go to Todos" to access your todo list
+5. Create, complete, and delete todos as needed
 
 ### Adding Authentication to Your Components
 
 #### Client Components
+
 ```typescript
 import { useSession } from "~/lib/auth-client";
 
@@ -83,6 +90,7 @@ export function MyComponent() {
 ```
 
 #### Server Components
+
 ```typescript
 import { getSession } from "~/server/auth";
 
